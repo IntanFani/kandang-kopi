@@ -1,0 +1,455 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+:root {
+  --brown: #c59f7b;
+  --brown-dark: #b38863;
+  --bg: #f4ecd9;
+  --text-dark: #5a4b43;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* Ganti font-family menjadi Inter */
+    font-family: 'Inter', sans-serif;
+}
+
+/* Jika kamu ingin mengatur ketebalan font agar lebih pas di mata */
+body {
+    background: #f5f0e8;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* LAYOUT */
+.layout {
+  display: flex;
+}
+
+/* MAIN CONTENT */
+.main-content {
+  margin-left: 280px;
+  flex: 1;
+  padding: 30px 40px;
+  padding-top: 100px;
+}
+.main-content .topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18.5px 40px;
+}
+.header {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.greeting {
+  font-size: 28px;
+  color: #5a4a3a;
+  font-weight: 600;
+  margin-right: 10px;
+}
+
+.btn-add {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto; /* Ini akan otomatis mendorong tombol ke kanan */
+  margin-bottom: 20px;
+  margin-top: 10px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  background: white;
+  border: 1px solid var(--brown);
+  color: var(--text-dark);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-add:hover {
+  background-color: var(--brown);
+  color: white;
+}
+
+.btn-add i {
+  font-size: 20px;
+}
+
+.content {
+  background: white;
+  border: 1px solid rgb(192, 189, 189);
+  border-radius: 15px;
+  padding: 30px;
+  max-width: 1003px;
+  width: 100%;
+}
+
+/* CARDS */
+.cards {
+  display: flex;
+  gap: 20px;
+  margin: 25px 0;
+}
+
+.card {
+  background: var(--brown);
+  padding: 20px;
+  border-radius: 12px;
+  width: 400px;
+  color: white;
+  text-align: center;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card h1 {
+  font-size: 36px;
+  margin-top: 5px;
+}
+
+/* SEARCH + FILTER */
+.search-filter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search-box {
+  background: white;
+  border: 1.5px solid #b38863;
+  padding: 7px 12px;
+  border-radius: 10px;
+  width: 850px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.search-box input {
+  border: none;
+  outline: none;
+  width: 100%;
+}
+
+.btn-filter {
+  width: 100px;
+  background: #f4ecd9;
+  color: #9A7E62;
+  padding: 9px 12px;
+  border-radius: 10px;
+  margin-left: 2px;
+  font-size: 16px;
+  border: 1.5px solid var(--brown);
+  cursor: pointer;
+}
+.btn-filter:hover {
+  background: #E6D8B8;
+}
+
+/* TABLE */
+.table-container {
+  margin-top: 25px;
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid #ddd;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+
+th {
+  text-align: left;
+  padding: 5px 0;
+  color: var(--text-dark);
+  border-bottom: 2px solid #ddd;
+}
+
+td {
+  padding: 10px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+/* MODAL STYLES */
+.modal-overlay {
+    position: fixed; /* Wajib fixed agar menempel di layar browser */
+    top: 0;
+    left: 0;
+    width: 100vw; /* Menggunakan viewport width */
+    height: 100vh; /* Menggunakan viewport height */
+    background: rgba(0, 0, 0, 0.5); /* Gelap transparan */
+    display: none; /* Default sembunyi */
+    justify-content: center;
+    align-items: center;
+    
+    /* Z-INDEX TINGGI */
+    z-index: 9999; /* Angka ini harus lebih besar dari z-index sidebar/navbar */
+    
+    /* Tambahan agar halus */
+    backdrop-filter: blur(2px); /* Memberikan efek blur tipis di belakang modal */
+}
+
+/* Pastikan saat aktif displaynya berubah jadi flex */
+.modal-overlay[style*="display: flex"] {
+    display: flex !important;
+}
+
+.modal-content {
+  background: #fdf8f0; /* Warna krem muda sesuai gambar */
+  padding: 40px;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.modal-content h2 {
+  color: #a67c52;
+  margin-bottom: 30px;
+  font-weight: 600;
+  font-size: 24px;
+}
+
+.form-group {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  color: #a67c52;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.form-group input, 
+.form-group select {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  background: white;
+  outline: none;
+  font-size: 14px;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* Custom Select Arrow */
+.select-wrapper {
+  position: relative;
+}
+.select-wrapper i {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #a67c52;
+  pointer-events: none;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.modal-footer .btn-secondary, 
+.modal-footer .btn-primary {
+    flex: 1;
+    padding: 12px;
+    border-radius: 12px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.btn-secondary {
+    background: white;
+    color: #a67c52;
+    border: 1px solid #ddd !important;
+}
+
+.btn-primary {
+    background: white;
+    color: #a67c52;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.modal-footer button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Tampilkan modal saat aktif */
+.modal-overlay.active {
+  display: flex;
+}
+/* serch + filter */
+/* Container untuk tombol dan popup */
+.filter-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+/* Kotak Popup Filter */
+.filter-popup {
+  display: none; /* Sembunyi secara default */
+  position: absolute;
+  top: 50px; /* Jarak dari tombol */
+  right: 0;
+  width: 320px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  border: 1px solid #ddd;
+  z-index: 100;
+}
+
+/* Panah kecil di atas popup */
+.filter-popup::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  right: 20px;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid white;
+}
+
+.filter-header {
+  padding: 10px;
+  text-align: center;
+  font-weight: 600;
+  color: #5a4b43;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+}
+
+.filter-body {
+  padding: 15px;
+}
+
+.filter-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.filter-group {
+  flex: 1;
+}
+
+.filter-group label {
+  display: block;
+  font-size: 11px;
+  color: #888;
+  margin-bottom: 5px;
+}
+
+.filter-group input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 12px;
+  background: #f9f9f9;
+}
+
+.btn-apply {
+  width: 100%;
+  padding: 10px;
+  background: #a68b6d; /* Warna cokelat sesuai gambar */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.btn-apply:hover {
+  background: #8e755a;
+}
+
+/* Class untuk memunculkan popup */
+.filter-popup.show {
+  display: block;
+}
+/* Styling tombol kembali berbentuk kapsul */
+.btn-primary-rounded {
+    padding: 10px 40px;
+    border-radius: 10px;
+    background-color: white;
+    color: #000;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 120px;
+}
+
+.btn-primary-rounded:hover {
+    background-color: #f8f9fa;
+    transform: translateY(-2px);
+}
+
+.text-center {
+    text-align: center;
+}
+/* Styling Khusus Modal Logout */
+.logout-card {
+    text-align: center;
+    position: relative;
+    max-width: 400px;
+    padding: 50px 30px;
+}
+
+.logout-icon {
+    margin-bottom: 20px;
+}
+
+.logout-card h3 {
+    color: #A68B6D !important;
+    font-size: 18px;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+.close-x {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 18px;
+    color: #666;
+}
+
+.btn-logout-confirm {
+    background: #A68B6D !important;
+    color: white !important;
+    width: 100%;
+    max-width: 200px;
+    border-radius: 10px;
+    font-weight: bold;
+    padding: 12px;
+}
+

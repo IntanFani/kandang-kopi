@@ -1,0 +1,461 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* Ganti font-family menjadi Inter */
+    font-family: 'Inter', sans-serif;
+}
+
+/* Jika kamu ingin mengatur ketebalan font agar lebih pas di mata */
+body {
+    background: #f5f0e8;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* MAIN CONTENT */
+.main-content {
+  margin-left: 280px;
+  flex: 1;
+  padding: 30px 40px;
+  padding-top: 100px;
+}
+.main-content .topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18.5px 40px;
+}
+.content {
+  background: white;
+  border: 1px solid rgb(192, 189, 189);
+  border-radius: 15px;
+  padding: 25px 30px;
+  max-width: 1000px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.title {
+  margin-bottom: 10px;
+  color: #ccb693;
+}
+
+
+/* SEARCH & BUTTON */
+.top-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.search-box {
+    width: 91%;
+    padding: 12px 20px;
+    border-radius: 8px;
+    border: 1px solid #c2b8a6;
+    background: white;
+    font-size: 15px;
+}
+
+.btn-tambah {
+    padding: 12px 20px;
+    background: #d6c2a4;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.btn-tambah:hover {
+    background: #ccb693;
+}
+
+/* FILTER */
+.filter-row {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.filter {
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: 1px solid #c4b7a3;
+    background: white;
+    cursor: pointer;
+}
+
+/* Efek Hover: Saat mouse di atas tombol */
+.filter:hover {
+    background-color: #f9f4ee;
+    border-color: #a9845f;
+    color: #a9845f;
+    transition: 0.3s;
+}
+
+/* Efek Active: Saat tombol sedang dipilih (nyala cokelat tua) */
+.filter.active {
+    background: #a9845f !important;
+    color: white !important;
+    border-color: #a9845f !important;
+    box-shadow: 0 4px 10px rgba(169, 132, 95, 0.3);
+}
+
+/* MENU GRID */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.card-menu {
+    padding: 15px;
+    background: white;
+    border: 1px solid rgb(170, 169, 169);
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.card-menu img {
+    width: 100%;
+    height: 140px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.card-menu h3 {
+    margin: 10px 0 0;
+}
+
+
+/* Container Footer di Card */
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid #f0e0d0; /* Garis tipis warna krem cokelat */
+}
+
+/* Kumpulan Ikon */
+.card-icons {
+    display: flex;
+    gap: 12px;
+}
+
+.card-icons i {
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+/* Warna Ikon Edit (Cokelat Oranye sesuai gambar) */
+.btn-edit {
+    color: #cc8e51; 
+}
+
+.btn-edit:hover {
+    color: #a67c52;
+}
+
+/* Warna Ikon Hapus (Abu-abu Gelap keunguan) */
+.btn-delete {
+    color: #a09088; 
+}
+
+.btn-delete:hover {
+    color: #7d6e66;
+}
+
+/* Status Active (Warna Hijau Terang) */
+.status.active {
+    color: #28a745; 
+    font-size: 13px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+/* Titik Hijau kecil sebelum teks Active */
+.status.active .dot {
+    width: 8px;
+    height: 8px;
+    background-color: #28a745;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+
+
+/* --- LAYOUT UTAMA MODAL --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Memberikan efek gelap di belakang */
+    display: none; /* Default sembunyi */
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Supaya selalu paling depan */
+}
+
+.modal-content {
+    background: #fdf8f0; /* Warna krem sesuai desain */
+    padding: 30px 40px;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 450px; /* Lebar kotak modal */
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    border: none;
+}
+
+.modal-content h2 {
+    color: #a67c52;
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-size: 24px;
+}
+
+/* --- FORM STYLING --- */
+.form-group {
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    color: #a67c52;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.form-group input, 
+.form-group select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    background: white;
+    outline: none;
+    font-size: 14px;
+    color: #555;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* Mengatur Select Wrapper */
+.select-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.select-wrapper i {
+    position: absolute;
+    right: 15px;
+    color: #a67c52;
+    pointer-events: none;
+}
+
+.select-wrapper select {
+    appearance: none; /* Menghapus panah bawaan browser */
+}
+
+/* --- UPLOAD BOX --- */
+.upload-box {
+    border: 2px dashed #d6c2a4;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    margin: 15px 0;
+    color: #a67c52;
+    background: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.upload-box:hover {
+    background: #f9f4ee;
+}
+
+.upload-box i {
+    font-size: 32px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* --- TOGGLE STATUS --- */
+.status-toggle {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #a67c52;
+}
+
+/* --- TOMBOL BATAL & SIMPAN --- */
+.modal-footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.modal-footer .btn-secondary, 
+.modal-footer .btn-primary {
+    flex: 1;
+    padding: 12px;
+    border-radius: 12px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.btn-secondary {
+    background: white;
+    color: #a67c52;
+    border: 1px solid #ddd !important;
+}
+
+.btn-primary {
+    background: white;
+    color: #a67c52;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.modal-footer button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+.text-center {
+    text-align: center;
+}
+
+.modal-content h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Memastikan overlay fleksibel untuk menengahkan konten */
+.modal-overlay {
+    display: none; /* Default hidden */
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+/* Styling tombol Kembali agar berbentuk kapsul seperti di gambar */
+#closeMenuSuccess {
+    padding: 10px 40px; /* Padding lebih lebar ke samping */
+    border-radius: 10px; /* Membuat bentuk kapsul/rounded sempurna */
+    background-color: white;
+    color: #000; /* Warna teks hitam/gelap agar kontras */
+    border: 1px solid #ddd; /* Garis pinggir halus */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Shadow lembut */
+    font-weight: 500;
+    width: auto; /* Biar ukurannya pas dengan teks */
+    min-width: 120px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#closeMenuSuccess:hover {
+    background-color: #f8f9fa;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+/* Wrapper ikon sukses untuk posisi lebih pas */
+.success-icon-wrapper {
+    margin-bottom: 20px;
+}
+
+.success-icon-wrapper i {
+    filter: drop-shadow(0 4px 8px rgba(40, 167, 69, 0.2));
+}
+/* Styling Khusus Modal Logout */
+.logout-card {
+    text-align: center;
+    position: relative;
+    max-width: 400px;
+    padding: 50px 30px;
+}
+
+.logout-icon {
+    margin-bottom: 20px;
+}
+
+.logout-card h3 {
+    color: #A68B6D !important;
+    font-size: 18px;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+.close-x {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 18px;
+    color: #666;
+}
+
+.btn-logout-confirm {
+    background: #A68B6D !important;
+    color: white !important;
+    width: 100%;
+    max-width: 200px;
+    border-radius: 10px;
+    font-weight: bold;
+    padding: 12px;
+}
+
+/* Menghilangkan garis bawah link pada tombol filter */
+.filter-row a.filter {
+    text-decoration: none; /* Ini yang menghilangkan underline */
+    display: inline-block;
+    padding: 10px 20px;
+    margin-right: 3px;
+    border: 1px solid #a67c52;
+    border-radius: 8px;
+    color: #a67c52;
+    background-color: #fff;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+/* Styling saat tombol kategori aktif atau dipilih */
+.filter-row a.filter.active {
+    background-color: #a67c52;
+    color: #fff;
+}
+
+/* Efek saat kursor diarahkan ke tombol */
+.filter-row a.filter:hover {
+    background-color: #c79c71;
+    color: #4d3d2e;
+    border-color: #8b6b4a;
+}

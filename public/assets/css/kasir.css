@@ -1,0 +1,299 @@
+
+/* General Utility */
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+
+/* Modal Base */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Nota Preview Modal */
+.nota-modal {
+    width: 400px;
+    padding: 20px;
+    border-radius: 15px;
+    background: white;
+}
+
+.nota-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.nota-header h3 {
+    margin: 0;
+    color: #a67c52;
+}
+
+.close-x {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.nota-body {
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.nota-paper {
+    background: white;
+    padding: 20px;
+    width: 100%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.nota-logo {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.nota-logo img {
+    width: 50px;
+}
+
+.brand-name {
+    margin: 5px 0;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.nota-info {
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.dashed-line {
+    border: none;
+    border-top: 1px dashed #000;
+    margin: 10px 0;
+}
+
+.nota-table {
+    width: 100%;
+    font-size: 12px;
+    border-collapse: collapse;
+}
+
+.nota-table thead tr {
+    border-bottom: 1px dashed #000;
+}
+
+.nota-table th {
+    text-align: left;
+    padding-bottom: 5px;
+}
+
+.bold-row {
+    font-weight: bold;
+    margin-top: 5px;
+    border-top: 1px solid #eee;
+    padding-top: 5px;
+}
+
+.thanks-msg {
+    text-align: center;
+    font-size: 10px;
+    margin-top: 20px;
+    border-top: 1px dashed #000;
+    padding-top: 10px;
+}
+
+/* Footer & Buttons */
+.nota-footer, .logout-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.btn-cancel, .btn-secondary {
+    flex: 1;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    background: white;
+    cursor: pointer;
+}
+
+.btn-confirm-print, .btn-primary {
+    flex: 1;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    background: #a67c52;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Success Card */
+.success-card {
+    text-align: center;
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    width: 300px;
+}
+
+.success-icon i {
+    color: #28a745;
+    font-size: 4rem;
+}
+
+/* Logout Card */
+.logout-card {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.empty-msg {
+    padding: 20px;
+}
+
+/* Container tombol */
+.logout-actions {
+    display: flex;
+    gap: 15px;      /* Jarak antar tombol */
+    margin-top: 25px;
+    width: 100%;    /* Memastikan container selebar modal */
+}
+
+/* Membuat tombol Batal dan Form Logout memiliki porsi yang sama */
+.logout-actions button, 
+.logout-actions form {
+    flex: 1;        /* Ini yang membuat panjangnya otomatis sama */
+}
+
+/* Pastikan tombol di dalam form juga memenuhi lebar formnya */
+.logout-actions form button {
+    width: 100%;
+}
+
+/* Gaya tambahan agar lebih cantik */
+.btn-secondary {
+    padding: 12px;
+    border: 1px solid #a67c52;
+    background: white;
+    color: #a67c52;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-primary {
+    padding: 12px;
+    border: none;
+    background: #a67c52;
+    color: white;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.filter-container {
+    display: flex;
+    gap: 10px;
+    margin: 20px 0;
+    overflow-x: auto; /* Agar bisa scroll di HP jika kategori banyak */
+    padding-bottom: 5px;
+}
+
+.filter-btn {
+    padding: 10px 25px;
+    border: 1px solid #a67c52;
+    background: white;
+    color: #a67c52;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.filter-btn.active {
+    background: #a67c52;
+    color: white;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.filter-btn:hover {
+    background: #efebe9;
+}
+
+.filter-btn.active:hover {
+    background: #8d6e63;
+}
+
+@media print {
+    /* 1. Sembunyikan SEMUA elemen UI utama */
+    .sidebar, 
+    .topbar, 
+    .main-content, /* Tambahkan ini agar konten dashboard di belakang nota hilang */
+    .selection-bar, 
+    .menu-grid, 
+    .btn-print, 
+    .nota-footer, 
+    .close-x,
+    .success-card {
+        display: none !important;
+    }
+
+    /* 2. Kondisikan Overlay agar tidak menutupi nota */
+    .modal-overlay {
+        position: absolute !important;
+        display: block !important;
+        background: none !important; /* Hilangkan warna hitam transparan */
+        width: 100% !important;
+        height: auto !important;
+    }
+
+    /* 3. Atur Nota agar berada di posisi paling atas kertas */
+    .modal-content.nota-modal {
+        position: relative !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        box-shadow: none !important;
+        border: none !important;
+    }
+
+    .nota-body {
+        background: white !important;
+        padding: 0 !important;
+    }
+
+    .nota-paper {
+        box-shadow: none !important;
+        width: 100% !important;
+        padding: 10px !important;
+    }
+
+    /* 4. Paksa warna dan tinta muncul (penting untuk beberapa browser) */
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+}

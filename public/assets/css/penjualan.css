@@ -1,0 +1,377 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* Ganti font-family menjadi Inter */
+    font-family: 'Inter', sans-serif;
+}
+
+/* Jika kamu ingin mengatur ketebalan font agar lebih pas di mata */
+body {
+    background: #f5f0e8;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.sidebar {
+    width: 280px;
+    background: #c4a484;
+    color: white;
+    padding: 30px 0;
+    position: fixed;
+    height: 100vh;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 0 0px;
+    margin-bottom: 10px;
+    margin-top: 0;
+}
+
+.logo-icon {
+    font-size: 40px;
+}
+
+.logo-icon img {
+    width: 90px;
+}
+
+.logo-text h1 {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.nav-menu {
+    list-style: none;
+}
+
+
+.nav-item {
+    padding: 14px 26px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 16px;
+    border-left: 4px solid transparent;
+}
+.nav-item a {
+    color: rgb(255, 255, 255);
+    font-size: 22px;
+    text-decoration: none;
+}
+.nav-item a span {
+    font-size: 16px;
+    margin-left: 10px;
+}
+
+.nav-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-item.active {
+    background: rgba(255, 255, 255, 0.15);
+    border-left-color: white;
+}
+
+.nav-icon {
+    font-size: 22px;
+    width: 24px;
+}
+
+.main-content {
+    margin-left: 280px;
+    flex: 1;
+    padding: 30px 40px;
+    padding-top: 90px;
+    overflow: scroll;
+}
+.main-content .topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18.5px 40px;
+}
+
+/* Custom Dropdown */
+.filter-row-sales {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+
+.stats-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  margin-top: 20px;
+  margin-bottom: 35px;
+}
+
+.stat-card {
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+}
+
+.stat-card.income {
+  background: linear-gradient(135deg, #c8e6c9 0%, #a5d6a7 100%);
+}
+
+.stat-card.expense {
+  background: linear-gradient(135deg, #ffccbc 0%, #ffab91 100%);
+}
+
+
+.stat-label {
+  font-size: 14px;
+  color: #5a4a3a;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.stat-value {
+  font-size: 26px;
+  font-weight: 700;
+  color: #3a2a1a;
+}
+
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.legend-color {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+}
+
+.legend-color.income {
+  background: #8b7355;
+}
+
+.legend-color.expense {
+  background: #d4c4b0;
+}
+
+
+/* Pastikan container utama tidak memotong dropdown */
+.transactions-section {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    position: relative; /* Tambahkan ini */
+    overflow: visible;  /* Pastikan ini visible agar dropdown tidak terpotong */
+}
+
+/* Container Dropdown */
+.custom-dropdown {
+    position: relative;
+
+    width: 140px;
+
+    padding: 8px 12px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 8px;
+
+    font-size: 13px;
+
+    color: #888;
+
+    cursor: pointer;
+
+    background: white;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+/* List Dropdown yang melayang */
+.dropdown-list {
+    position: absolute;
+    top: calc(100% + 5px); /* Jarak sedikit dari box atas */
+    left: 0;
+    width: 100%;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Shadow lembut kyk di gambar */
+    list-style: none;
+    display: none; 
+    z-index: 999; /* Pastikan paling depan */
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #f0f0f0;
+}
+
+.dropdown-list li {
+    padding: 10px 12px;
+    color: #666;
+    transition: 0.2s;
+}
+
+.dropdown-list li:hover {
+    background: #fdf8f0; /* Warna krem muda saat hover */
+    color: #a67c52;
+}
+
+.dropdown-list li.active {
+    background: #f5f5f5;
+    font-weight: bold;
+}
+
+.section-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #5a4a3a;
+  margin-bottom: 20px;
+}
+
+.transactions-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.transactions-table thead {
+  background: #f8f5f0;
+}
+
+.transactions-table th {
+  padding: 15px;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 600;
+  color: #5a4a3a;
+}
+
+.transactions-table td {
+  padding: 15px;
+  border-bottom: 1px solid #f0ebe3;
+  font-size: 14px;
+  color: #6a5a4a;
+}
+
+.transactions-table tr:last-child td {
+  border-bottom: none;
+}
+
+
+@media (max-width: 968px) {
+  .sidebar {
+    width: 70px;
+  }
+
+  .logo-text,
+  .nav-item span {
+    display: none;
+  }
+
+  .logo {
+    justify-content: center;
+    padding: 0 15px;
+  }
+
+  .nav-item {
+    justify-content: center;
+    padding: 18px 15px;
+  }
+
+  .main-content {
+    margin-left: 70px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    display: none;
+  }
+
+  .main-content {
+    margin-left: 0;
+    padding: 20px;
+  }
+
+  .stats-cards {
+    grid-template-columns: 1fr;
+  }
+}
+/* Styling Khusus Modal Logout */
+.logout-card {
+    text-align: center;
+    position: relative;
+    max-width: 400px;
+    padding: 50px 30px;
+}
+
+.logout-icon {
+    margin-bottom: 20px;
+}
+
+.logout-card h3 {
+    color: #A68B6D !important;
+    font-size: 18px;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+.close-x {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 18px;
+    color: #666;
+}
+
+.btn-logout-confirm {
+    background: #A68B6D !important;
+    color: white !important;
+    width: 100%;
+    max-width: 200px;
+    border-radius: 10px;
+    font-weight: bold;
+    padding: 12px;
+}
+/* Pastikan overlay menutupi seluruh layar */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Warna hitam transparan */
+    display: none; /* Sembunyi default */
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Pastikan di atas segalanya */
+}
+
+/* Kotak putih modal */
+.modal-content {
+    background: #fdf8f0;
+    padding: 35px 40px;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}

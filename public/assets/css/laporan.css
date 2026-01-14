@@ -1,0 +1,387 @@
+/* --- RESET & BASE STYLE --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+}
+
+body {
+    background: #f5f0e8;
+    display: flex;
+    min-height: 100vh;
+}
+
+/* --- LAYOUT UTAMA --- */
+.content {
+    background: white;
+    border: 1px solid rgb(192, 189, 189);
+    border-radius: 15px;
+    padding: 40px 30px;
+    max-width: 1010px;
+    width: 100%;
+    margin-top: 25px;
+}
+
+.top-left {
+    padding: 0 30px;
+}
+
+.top-right {
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px 20px; 
+}
+
+/* --- SEARCH & FILTER SECTION --- */
+.search-filter {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.search-form {
+    display: flex;
+    gap: 10px;
+    flex: 1;
+}
+
+.search-box {
+    flex: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: white;
+    border: 1px solid #9a7e62;
+    border-radius: 10px;
+    max-width: 800px; /* Batas maksimal lebar agar tidak terlalu panjang */
+}
+
+.search-box i {
+    position: absolute;
+    left: 12px;
+    color: #888;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 10px 12px 10px 40px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+}
+
+/* --- BUTTONS --- */
+.btn-filter {
+    background: #f7f1de;
+    padding: 10px 30px;
+    border-radius: 10px;
+    color: #9a7e62;
+    border: 1.5px solid #9a7e62;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: 0.3s;
+}
+
+.btn-filter:hover {
+    background: #e6d8b8;
+}
+
+.btn-pdf {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 0 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    height: 38px; /* Menyamakan tinggi dengan search box */
+}
+
+/* --- FILTER POPUP --- */
+.filter-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.filter-popup {
+    display: none; 
+    position: absolute;
+    top: 50px;
+    right: 0;
+    width: 280px;
+    background: white;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+    z-index: 100;
+}
+
+/* Munculkan popup saat ada class .show atau .active (mendukung kedua versi JS Anda) */
+.filter-popup.show, .filter-popup.active {
+    display: block;
+}
+
+.filter-popup::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    right: 20px;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid white;
+}
+
+.filter-header {
+    padding-bottom: 10px;
+    text-align: center;
+    font-weight: 600;
+    color: #5a4b43;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.filter-group {
+    margin-bottom: 12px;
+}
+
+.filter-group label {
+    display: block;
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 5px;
+}
+
+.filter-group select, 
+.filter-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 13px;
+    background: #f9f9f9;
+}
+
+.btn-apply {
+    width: 100%;
+    padding: 10px;
+    background: #a67c52;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-apply:hover {
+    background: #8e755a;
+}
+
+/* --- CARDS & STATS --- */
+.cards {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+}
+
+.card {
+    background: #caa886;
+    color: white;
+    padding: 20px;
+    border-radius: 12px;
+    flex: 1;
+    text-align: center;
+}
+
+.card h2 {
+    margin: 10px 0 0;
+    font-size: 30px;
+}
+
+/* --- CHARTS --- */
+.charts {
+    margin-top: 30px;
+    display: flex;
+    gap: 20px;
+}
+
+.chart-box {
+    background: white;
+    padding: 20px;
+    border: 1px solid rgb(204, 203, 203);
+    border-radius: 12px;
+}
+
+.charts .chart-box:first-child { flex: 2; }
+.charts .chart-box:last-child { flex: 1; min-width: 250px; }
+
+.chart-box canvas {
+    width: 100% !important;
+    height: auto !important;
+}
+
+/* --- TABLE --- */
+.table-container {
+    margin-top: 25px;
+    padding: 20px;
+    background: white;
+    border-radius: 15px;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+
+.table-title {
+    color: #a67c52;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+}
+
+table th {
+    padding: 15px;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 600;
+    color: #5a4a3a;
+    background-color: #d4c4b0;
+    border-bottom: 1px solid #eee;
+}
+
+table td {
+    padding: 15px;
+    border-bottom: 1px solid #f0ebe3;
+    font-size: 14px;
+    color: #6a5a4a;
+}
+
+tbody tr:hover {
+    background: #f3e8d5;
+}
+
+/* --- MODAL SYSTEM --- */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; 
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    display: none; 
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.modal-content {
+    background: #fdf8f0;
+    padding: 35px 40px;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 450px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* --- LOGOUT SPECIFIC --- */
+.logout-card {
+    text-align: center;
+    padding: 50px 30px;
+}
+
+.logout-card h3 {
+    color: #A68B6D !important;
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.close-x {
+    position: absolute;
+    top: 15px; right: 20px;
+    background: none;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    width: 25px; height: 25px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+}
+
+/* Container utama pagination */
+.pagination-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    padding-bottom: 20px;
+}
+
+/* Menyembunyikan teks "Showing X to Y of Z results" bawaan Laravel */
+.pagination-wrapper nav div:first-child {
+    display: none !important;
+}
+
+/* Menghilangkan bullet points dan merapikan kontainer angka */
+.pagination-wrapper ul.pagination {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 8px;
+    align-items: center;
+}
+
+/* Styling untuk setiap kotak angka/tombol */
+.pagination-wrapper .page-item .page-link,
+.pagination-wrapper .page-item span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 36px;
+    height: 36px;
+    padding: 0 12px;
+    text-decoration: none;
+    color: #a67c52; /* Warna cokelat tema */
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+/* Warna saat nomor halaman aktif (Selected) */
+.pagination-wrapper .page-item.active span,
+.pagination-wrapper .page-item.active .page-link {
+    background-color: #a67c52 !important;
+    color: white !important;
+    border-color: #a67c52 !important;
+}
+
+/* Efek Hover */
+.pagination-wrapper .page-item .page-link:hover {
+    background-color: #f5f0e8;
+    border-color: #a67c52;
+}
+
+/* Styling khusus untuk tombol Disable (tombol Previous/Next yang tidak bisa diklik) */
+.pagination-wrapper .page-item.disabled span {
+    color: #ccc;
+    background: #f9f9f9;
+    border-color: #eee;
+    cursor: not-allowed;
+}
+
+/* --- UTILITIES --- */
+.text-green { color: #27ae60; }
+.text-red { color: #e74c3c; }
+.text-center { text-align: center; }
+.nominal-bold { font-weight: bold; }

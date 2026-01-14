@@ -1,0 +1,96 @@
+/* TOPBAR FULL */
+.topbar {
+    position: fixed;
+    top: 0;
+    left: 280px;
+    width: calc(100% - 250px);
+    background: #fff;
+    padding: 10px 10px;
+    border-bottom: 3px solid #e6ddc5;
+    z-index: 2000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.topbar h1 {
+    margin: 0;
+    font-size: 26px;
+    color: #C4A484;
+}
+
+.topbar p {
+    margin: 5px 0 0;
+    color: #C4A484;
+}
+
+.top-right {
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid #d8c8b2;
+    padding: 6px 20px;
+    border-radius: 30px;
+}
+
+.user i {
+    color: #C4A484;
+}
+
+.profile {
+    color: #C4A484;
+    font-size: 12px;
+}
+
+.top-right {
+    display: flex;
+    justify-content: flex-end;
+    /* Perkecil padding atas bawah agar tidak terlalu memakan ruang vertical */
+    padding: 10px 20px; 
+}
+
+.user-profile-pill {
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    /* Perkecil padding dalam (atas/bawah: 4px, kanan: 15px, kiri: 8px) */
+    padding: 5px 15px 4px 8px; 
+    border-radius: 50px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Shadow lebih tipis */
+    gap: 10px; /* Jarak icon ke teks diperkecil */
+}
+
+.user-avatar i {
+    /* Perkecil ukuran icon dari 40px ke 30px */
+    font-size: 30px; 
+    color: #c4a484;
+    display: flex;
+    align-items: center;
+}
+
+.user-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.user-fullname {
+    font-weight: 700;
+    color: #8b6b4a;
+    /* Perkecil font name dari 16px ke 14px */
+    font-size: 15px; 
+    line-height: 1.1;
+}
+
+.user-handle {
+    /* Perkecil font email/username dari 13px ke 11px */
+    font-size: 13px; 
+    color: #bca48c;
+}
